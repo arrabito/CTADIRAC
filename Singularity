@@ -21,14 +21,14 @@ yum -y install epel-release less strace wget git which
 # Packages DIRAC depends on
 yum -y install boost-program-options boost-python boost-system boost-thread c-ares lfc-libs libtool-ltdl protobuf
 # Install ntpdate to make sure clock is exact
-# yum -y install ntpdate.x86_64
+yum -y install ntpdate.x86_64
 # Sync the clock
-# ntpdate ntp.inria.fr
+ntpdate ntp.inria.fr
 
 # Install CAs on /tmp (shared with host by default) 
-rm -R /etc/grid-security/certificates
-mkdir -p /tmp/etc/grid-security/certificates
-ln -s /tmp/etc/grid-security/certificates /etc/grid-security
+#rm -R /etc/grid-security/certificates
+# mkdir -p /tmp/etc/grid-security/certificates
+#ln -s /tmp/etc/grid-security/certificates /etc/grid-security
 cat <<EOF > /etc/yum.repos.d/ca-policy-egi.repo
 [EGI-trustanchors]
 name=EGI-trustanchors
@@ -39,6 +39,9 @@ enabled=1
 EOF
 
 yum -y install ca-policy-egi-core
+
+mkdir -p /tmp/etc/grid-security
+cp -R /etc/grid-security/certificates /tmp/etc/grid-security
 
 # Create base directory for CTADIRAC client installation
 mkdir -p $DIRAC_ROOT
