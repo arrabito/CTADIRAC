@@ -21,9 +21,9 @@ yum -y install epel-release less strace wget git which
 # Packages DIRAC depends on
 yum -y install boost-program-options boost-python boost-system boost-thread c-ares lfc-libs libtool-ltdl protobuf
 # Install ntpdate to make sure clock is exact
-yum -y install ntpdate.x86_64
+# yum -y install ntpdate.x86_64
 # Sync the clock
-ntpdate ntp.inria.fr
+# ntpdate ntp.inria.fr
 
 # Install CAs on /tmp (shared with host by default) 
 #rm -R /etc/grid-security/certificates
