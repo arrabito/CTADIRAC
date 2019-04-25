@@ -17,7 +17,7 @@ LCGVER=$(curl -s -L http://cta-dirac.in2p3.fr/DIRAC/defaults/cta.cfg | grep LcgV
 yum -y update
 
 # General packages needed inside the container
-yum -y install epel-release less strace wget git which 
+yum -y install epel-release less strace wget git which emacs
 
 # Packages DIRAC depends on
 yum -y install boost-program-options boost-python boost-system boost-thread c-ares lfc-libs libtool-ltdl protobuf
