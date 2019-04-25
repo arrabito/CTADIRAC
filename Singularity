@@ -114,5 +114,5 @@ if ! [ -d "/tmp/etc/grid-security/certificates" ]
   mkdir -p /tmp/etc/grid-security
   cp -R /etc/grid-security/certificates /tmp/etc/grid-security
 fi
+EOF
 
-chmod +x /opt/dirac/dirac_env.sh
