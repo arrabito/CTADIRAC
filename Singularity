@@ -87,6 +87,8 @@ DIRAC
   Extensions += CTA
   Security
   {
+    # This option is specific to the usage in singularity container
+    CALocation = /tmp/etc/grid-security/certificates
     UseServerCertificate = no
     SkipCAChecks = yes
   }
