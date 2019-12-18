@@ -12,7 +12,7 @@ export DIRAC_ROOT=/opt/dirac
 # Retrieve the latest CTADIRAC release from defaults
 PYTHON_VERSION=27
 RELEASE=$(curl -s -L http://cta-dirac.in2p3.fr/DIRAC/defaults/cta.cfg | grep Release | tail -1 | awk -F "= " '{print $2}')
-LCGVER=$(curl -s -L http://cta-dirac.in2p3.fr/DIRAC/defaults/cta.cfg | grep LcgVer | awk -F "= " '{print $2}')
+# LCGVER=$(curl -s -L http://cta-dirac.in2p3.fr/DIRAC/defaults/cta.cfg | grep LcgVer | awk -F "= " '{print $2}')
 
 yum -y update
 
@@ -43,9 +43,9 @@ yum -y install ca-policy-egi-core
 mkdir -p $DIRAC_ROOT
 
 # Install lcg bundles
-mkdir -p $DIRAC_ROOT/.installCache
-cd $DIRAC_ROOT/.installCache
-wget http://diracproject.web.cern.ch/diracproject/tars/../lcgBundles/DIRAC-lcg-${LCGVER}-Linux_x86_64_glibc-2.17-python27.tar.gz
+# mkdir -p $DIRAC_ROOT/.installCache
+# cd $DIRAC_ROOT/.installCache
+# wget http://diracproject.web.cern.ch/diracproject/tars/../lcgBundles/DIRAC-lcg-${LCGVER}-Linux_x86_64_glibc-2.17-python27.tar.gz
 
 # Install CTADIRAC client
 cd $DIRAC_ROOT
@@ -56,8 +56,8 @@ python dirac-install.py -V CTA -v
 cat <<EOF > $DIRAC_ROOT/etc/dirac.cfg
 LocalInstallation
 {
-  ConfigurationServer = dips://ccdcta-server03.in2p3.fr:9135/Configuration/Server
-  ConfigurationServer += dips://ccdcta-server02.in2p3.fr:9135/Configuration/Server
+  ConfigurationServer = dips://ccdcta-server04.in2p3.fr:9135/Configuration/Server
+  ConfigurationServer += dips://ccdcta-server05.in2p3.fr:9135/Configuration/Server
   ConfigurationServer += dips://dcta-agents01.pic.es:9135/Configuration/Server
   ConfigurationServer += dips://dcta-servers01.pic.es:9135/Configuration/Server
   VirtualOrganization = vo.cta.in2p3.fr
@@ -69,15 +69,14 @@ LocalInstallation
   Extensions += CTA
   SkipCAChecks = True
   Release = ${RELEASE}
-  LcgVer = ${LCGVER}
   SkipCADownload = False
 }
 DIRAC
 {
   Configuration
   {
-    Servers = dips://ccdcta-server03.in2p3.fr:9135/Configuration/Server
-    Servers += dips://ccdcta-server02.in2p3.fr:9135/Configuration/Server
+    Servers = dips://ccdcta-server04.in2p3.fr:9135/Configuration/Server
+    Servers += dips://ccdcta-server05.in2p3.fr:9135/Configuration/Server
     Servers += dips://dcta-agents01.pic.es:9135/Configuration/Server
     Servers += dips://dcta-servers01.pic.es:9135/Configuration/Server
   }
