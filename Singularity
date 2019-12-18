@@ -9,7 +9,7 @@ source /opt/dirac/dirac_env.sh
 # CTADIRAC client location
 export DIRAC_ROOT=/opt/dirac
 
-# Retrieve the latest CTADIRAC release from defaults
+# Retrieve the latest CTADIRAC release from defaults. Modified for dirac v7
 PYTHON_VERSION=27
 RELEASE=$(curl -s -L http://cta-dirac.in2p3.fr/DIRAC/defaults/cta.cfg | grep Release | tail -1 | awk -F "= " '{print $2}')
 # LCGVER=$(curl -s -L http://cta-dirac.in2p3.fr/DIRAC/defaults/cta.cfg | grep LcgVer | awk -F "= " '{print $2}')
