@@ -12,7 +12,6 @@ export DIRAC_ROOT=/opt/dirac
 # Retrieve the latest CTADIRAC release from defaults. Modified for dirac v7
 PYTHON_VERSION=27
 RELEASE=$(curl -s -L http://cta-dirac.in2p3.fr/DIRAC/defaults/cta.cfg | grep Release | tail -1 | awk -F "= " '{print $2}')
-# LCGVER=$(curl -s -L http://cta-dirac.in2p3.fr/DIRAC/defaults/cta.cfg | grep LcgVer | awk -F "= " '{print $2}')
 
 yum -y update
 
@@ -58,7 +57,7 @@ LocalInstallation
 {
   ConfigurationServer = dips://ccdcta-server04.in2p3.fr:9135/Configuration/Server
   ConfigurationServer += dips://ccdcta-server05.in2p3.fr:9135/Configuration/Server
-  ConfigurationServer += dips://dcta-agents01.pic.es:9135/Configuration/Server
+  ConfigurationServer += dips://dcta-agents02.pic.es:9135/Configuration/Server
   ConfigurationServer += dips://dcta-servers01.pic.es:9135/Configuration/Server
   VirtualOrganization = vo.cta.in2p3.fr
   Setup = CTA
@@ -77,7 +76,7 @@ DIRAC
   {
     Servers = dips://ccdcta-server04.in2p3.fr:9135/Configuration/Server
     Servers += dips://ccdcta-server05.in2p3.fr:9135/Configuration/Server
-    Servers += dips://dcta-agents01.pic.es:9135/Configuration/Server
+    Servers += dips://dcta-agents02.pic.es:9135/Configuration/Server
     Servers += dips://dcta-servers01.pic.es:9135/Configuration/Server
   }
   Setup = CTA
