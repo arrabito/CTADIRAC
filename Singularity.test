@@ -1,0 +1,7 @@
+Bootstrap: docker
+From: centos:7
+
+%runscript
+echo "Rooooar!"
+echo "Arguments received: $*"
+exec echo "$@"
