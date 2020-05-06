@@ -1,0 +1,21 @@
+Bootstrap: docker
+From: centos:7
+
+
+%post
+        yum update -y
+        yum install -y make 
+        yum install -y gcc
+        yum install -y gcc-c++
+        yum -y install gcc-gfortran
+        yum -y install csh
+        yum -y install centos-release-scl
+        yum -y install autoconf
+        yum -y install automake
+        yum -y install devtoolset-8-gcc*
+	yum -y install bc
+%runscript
+exec $@
+
+%help
+        This is an image with the dependencies to create packages for Centos 7
