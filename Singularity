@@ -8,6 +8,8 @@ source /opt/dirac/dirac_env.sh
 %post
 # CTADIRAC client location
 export DIRAC_ROOT=/opt/dirac
+export TERM=xterm-256color
+export COLUMNS=155
 
 # Retrieve the latest CTADIRAC release from defaults. Modified for dirac v7
 PYTHON_VERSION=27
