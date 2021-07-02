@@ -48,7 +48,7 @@ mkdir -p $DIRAC_ROOT
 
 # Install CTADIRAC client
 cd $DIRAC_ROOT
-wget --no-check-certificate https://github.com/DIRACGrid/DIRAC/raw/master/Core/scripts/dirac-install.py
+wget --no-check-certificate https://raw.githubusercontent.com/DIRACGrid/management/master/dirac-install.py
 python dirac-install.py -V CTA -v
 
 # Since there is no proxy available, manually configure the CTADIRAC client
